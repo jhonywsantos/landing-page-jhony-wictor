@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhony Wictor - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #1e4f74, #4c799b, #05305280);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        .wave {
+            animation: wave 2.5s infinite;
+            transform-origin: 70% 70%;
+            display: inline-block;
+        }
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+        /* Custom input styling */
+        .custom-input {
+            border-color: #1122fb;
+            border-width: 1px;
+            border-radius: 0.5rem;
+        }
+        .custom-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(17, 34, 251, 0.5);
+        }
+        .custom-textarea {
+            border-color: #1122fb;
+            border-width: 1px;
+            border-radius: 0.5rem;
+        }
+        .custom-textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(17, 34, 251, 0.5);
+        }
+        
+        /* Background image styling */
+        body {
+            background-image: url('https://raw.githubusercontent.com/jhonywsantos/Html-CSS/main/Landing%20Page/Imagens/tela%20de%20fundo.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        
+        /* Add a semi-transparent overlay to improve readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0);
+            z-index: -1;
+        }
+        
+        /* Sections with white background */
+        section.bg-white, section.bg-gray-50 {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold gradient-text">JW</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">Sobre</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Habilidades</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contato</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Sobre</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Habilidades</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 relative bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(72, 167, 255, 0), rgba(255, 255, 255, 0)), url('https://raw.githubusercontent.com/jhonywsantos/Html-CSS/main/Landing%20Page/Imagens/capa.png')">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Olá, sou <span class="gradient-text">Jhony Wictor</span> <span class="wave">👋</span>
+                </h1>
+                <p class="text-lg text-black mb-8">
+                    Um desenvolvedor apaixonado por tecnologia e inovação. 
+                    Construindo soluções digitais que fazem a diferença.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/jhony-wictor-n-santos-4b8a85237" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition flex items-center">
+                        <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                    </a>
+                    <a href="#contact" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition">
+                        Me contate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <span class="gradient-text">Sobre Mim</span>
+            </h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 flex justify-center mb-8 md:mb-0">
+                    <img src="https://raw.githubusercontent.com/jhonywsantos/Html-CSS/main/Landing%20Page/Imagens/jhonyfotodeperfil.jpg" 
+                         alt="Jhony Wictor" 
+                         class="rounded-full w-64 h-64 object-cover shadow-lg">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Sou um profissional dedicado e apaixonado por tecnologia, com experiência em desenvolvimento de software e soluções inovadoras. Minha jornada na área de TI me permitiu adquirir conhecimentos valiosos e desenvolver habilidades que me tornam um profissional completo.
+                    </p>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Acredito no poder da tecnologia para transformar negócios e melhorar a vida das pessoas. Estou sempre buscando aprender novas tecnologias e metodologias para me manter atualizado neste mercado em constante evolução.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <div class="bg-[#85c1ae] text-black-700 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-graduation-cap mr-2"></i> Ciência da Computação - UFAL
+                        </div>
+                        <div class="bg-[#ff5833] text-black-700 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-code mr-2"></i> Python, HTML, JS, Java
+                        </div>
+                        <div class="bg-[#5faee3] text-black-700 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-lightbulb mr-2"></i> Programador & UX|UI Designer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <span class="gradient-text">Minhas Habilidades</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+                    <div class="mb-4" style="color: #1f8fff;">
+                        <i class="fas fa-code text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Desenvolvimento Web</h3>
+                    <p class="text-gray-600">
+                        Experiência em construção de aplicações web responsivas e modernas utilizando as melhores tecnologias do mercado.
+                    </p>
+                </div>
+                                
+                <!-- Skill Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+                    <div class="mb-4" style="color: #5faee3;">
+                        <i class="fas fa-file-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Suporte Técnico/Administrativo</h3>
+                    <p class="text-gray-600">
+                        Controle de ativos de TI via dashboards e planilhas. Instalação e manutenção de software e hardware. Redator. Suporte técnico para usuários finais.
+                    </p>
+                </div>
+                                
+                <!-- Skill Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+                    <div class="mb-4" style="color: #85c1ae;">
+                        <i class="fas fa-database text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Banco de Dados</h3>
+                    <p class="text-gray-600">
+                        Habilidade em modelagem e implementação de bancos de dados relacionais e não relacionais para diversas necessidades.
+                    </p>
+                </div>
+                                
+                <!-- Skill Card 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+                    <div class="mb-4" style="color: #ff5833;">
+                        <i class="fas fa-cloud text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Cloud Computing</h3>
+                    <p class="text-gray-600">
+                        Conhecimento em serviços de computação em nuvem para escalabilidade e alta disponibilidade de aplicações.
+                    </p>
+                </div>
+                                
+                <!-- Skill Card 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+                    <div class="mb-4" style="color: #1e4f74;">
+                        <i class="fas fa-users-cog text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Trabalho em Equipe</h3>
+                    <p class="text-gray-600">
+                        Excelente capacidade de colaboração em equipes multidisciplinares, seguindo metodologias ágeis.
+                    </p>
+                </div>
+                                
+                <!-- Skill Card 6 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+                    <div class="mb-4" style="color: #92baca;">
+                        <i class="fas fa-lightbulb text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Resolução de Problemas</h3>
+                    <p class="text-gray-600">
+                        Habilidade analítica para identificar e resolver problemas complexos de forma criativa e eficiente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-16 text-black relative">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://raw.githubusercontent.com/jhonywsantos/Html-CSS/main/Landing%20Page/Imagens/tela%20de%20fundo.png" 
+                 alt="Background" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-[#2b5b7d] opacity-0"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8">Conecte-se Comigo</h2>
+            <p class="max-w-2xl mx-auto mb-12 text-lg">
+                Estou sempre aberto a novas conexões e oportunidades. Vamos conversar sobre tecnologia, projetos ou possíveis colaborações!
+            </p>
+            <div class="flex justify-center space-x-6 md:space-x-12">
+                <a href="https://github.com/jhonywsantos" target="_blank" class="social-icon bg-white text-gray-800 w-14 h-14 rounded-full flex items-center justify-center text-2xl hover:bg-gray-100">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jhony-wictor-n-santos-4b8a85237" target="_blank" class="social-icon bg-blue-700 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl hover:bg-blue-800">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/jhonywictor?igsh=MW81OWlwZ2Jscmk2bA==" target="_blank" class="social-icon bg-gradient-to-r from-pink-500 to-purple-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl hover:from-pink-600 hover:to-purple-600">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <span class="gradient-text">Entre em Contato</span>
+            </h2>
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gradient-to-br from-[#4a799b] to-[#b2dcfc] text-white p-8 md:p-12">
+                        <h3 class="text-2xl font-bold mb-4">Informações de Contato</h3>
+                        <p class="mb-6">Fique à vontade para me enviar uma mensagem. Responderei o mais breve possível!</p>
+                                                
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-4 text-blue-200"></i>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-blue-100">jhonywictorsantos@gmail.com</p>
+                                </div>
+                            </div>
+                                                    
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-200"></i>
+                                <div>
+                                    <h4 class="font-semibold">Localização</h4>
+                                    <p class="text-blue-100">Alagoas, Brasil</p>
+                                </div>
+                            </div>
+                        </div>
+                                                
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-3">Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/jhonywsantos" target="_blank" class="social-icon bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/jhony-wictor-n-santos-4b8a85237" target="_blank" class="social-icon bg-[#1e4f74] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#2b5b7d]">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.instagram.com/jhonywictor?igsh=MW81OWlwZ2Jscmk2bA==" target="_blank" class="social-icon bg-gradient-to-r from-[#ff5833] to-[#ff8c66] text-white w-10 h-10 rounded-full flex items-center justify-center hover:from-[#ff6b4d] hover:to-[#ff9e7a]">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                                        
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Nome</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border border-[#92baca] focus:outline-none focus:ring-2 focus:ring-[#4c799b]" required>
+                            </div>
+                                                    
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 rounded-lg border border-[#92baca] focus:outline-none focus:ring-2 focus:ring-[#4c799b]" required>
+                            </div>
+                                                    
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-[#92baca] focus:outline-none focus:ring-2 focus:ring-[#4c799b]" required></textarea>
+                            </div>
+                                                    
+                            <button type="submit" class="w-full bg-gradient-to-r from-[#92baca] to-[#4c799b] hover:from-[#a0c6d4] hover:to-[#5a88a5] text-white font-medium py-3 px-4 rounded-lg transition-all duration-300">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-8 relative overflow-hidden">
+        <!-- Imagem de fundo com overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://raw.githubusercontent.com/jhonywsantos/Html-CSS/main/Landing%20Page/Imagens/rodap%C3%A9.png" 
+                 alt="Background" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gray-800 bg-opacity-0"></div>
+        </div>
+        
+        <!-- Conteúdo -->
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="text-2xl font-bold gradient-text">Jhony Wictor</div>
+                    <p class="text-gray-500 mt-2">Desenvolvedor & Inovador</p> 
+                </div>
+                                
+                <div class="flex space-x-6">
+                    <a href="https://github.com/jhonywsantos" target="_blank" class="text-[#5faee3] hover:text-[#0867c5] transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jhony-wictor-n-santos-4b8a85237" target="_blank" class="text-[#5faee3] hover:text-[#0867c5] transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jhonywictor?igsh=MW81OWlwZ2Jscmk2bA==" target="_blank" class="text-[#5faee3] hover:text-[#0867c5] transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+                        
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-800">
+                <p>&copy; 2025 Jhony Wictor. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+                
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+                
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+                
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+                        
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+                        
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso. Entrarei em contato em breve.`);
+                        
+            // Reset form
+            contactForm.reset();
+        });
+                
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                                            
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
